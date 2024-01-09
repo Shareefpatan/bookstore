@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+          background-image: url(https://eskipaper.com/images/blurry-wallpaper-hd-1.jpg);
+          background-size: cover;
+          background-blend-mode:overlay
+          
+        }
+    
+      p{
+        color: bisque;
+      }
+    
+        form {
+          width: 300px;
+          margin: 0 auto;
+          margin-top: 70px;
+          padding: 30px;
+          background-color:rgba(55, 55, 55, 0.546);
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.539);
+          color: #f0e5e5;
+        }
+    
+        form {
+          
+          text-align: center;
+        }
+      </style>
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Book</title>
+</head>
+<body>
+    <h1>Rent Book</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+        <br><br>
+        <label for="return_date">Return Date:</label>
+        <input type="date" id="return_date" name="return_date" required>
+        <br><br>
+        <input type="submit" value="Rent Book">
+    </form>
+</body>
+</html>

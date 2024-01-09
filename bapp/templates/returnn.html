@@ -1,0 +1,28 @@
+<!-- return.html -->
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Return Book</h1>
+    <h3>User Details:</h3>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email_id }}</p>
+    <p>City: {{ user.city }}</p>
+    <p>Date Joined: {{ user.date_joined }}</p>
+
+    <h3>Book Details:</h3>
+    <p>Title: {{ book_rent.book.title }}</p>
+    <!-- Add other book details as needed -->
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="return_date" class="form-label">Date of return</label>
+            <input type="date" name="return_date" class="form-control" id="return_date" required>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

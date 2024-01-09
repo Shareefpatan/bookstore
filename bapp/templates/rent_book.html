@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Book</title>
+    <style>
+        body {
+            background-image: url(https://img.freepik.com/free-photo/top-view-school-supplies-with-copyspace_23-2148198139.jpg?w=1060&t=st=1702439673~exp=1702440273~hmac=9fb91e150c6f4793d8b1ca5e95e0d339352c99a67611d7b9aa03f3b968f19d7b);
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Style for form labels */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Style for form input fields */
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Style for the submit button */
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Add additional styles as needed */
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="rented_date">Rental Date</label>
+            <input type="date" id="rented_date" name="rented_date" required>
+
+            <label for="return_date">Return Date</label>
+            <input type="date" id="return_date" name="return_date" required>
+
+            <input type="submit" value="Rent Book">
+        </form>
+    </div>
+</body>
+</html>

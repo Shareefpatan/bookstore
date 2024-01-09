@@ -1,0 +1,33 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
+
+{% block content %}
+<style>
+    body {
+      background-image: url('https://i.pinimg.com/originals/95/f8/58/95f8588d6469a16271ea2d2fad419d00.png'); 
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: 100%;
+    }
+
+
+    p {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 50px;
+      padding: 20px;
+      background-color:rgba(101, 96, 96, 0.562);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.502);
+      color: #f0e5e5;
+    }
+    p {
+      text-align: center;
+    }
+  </style><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer>
+<p>{% trans "Successfully logged out" %}.</p>
+</footer>
+{% endblock %}

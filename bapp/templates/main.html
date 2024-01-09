@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* body
+    {
+       background-image: url(https://images.saymedia-content.com/.image/t_share/MTkzOTUzODU0MDkyNjE3MjIx/particlesjs-examples.gif);
+    } */
+    body {
+        height: 100vh;
+        align-items: center;
+        justify-content: center;}
+
+    .content >*{
+        font-size: 20px;
+        color:beige;
+        position: fixed;
+        background-position: 2%;
+        font-style: oblique;
+        background-image: url(https://cdn.svgator.com/images/2022/06/use-svg-as-background-image-particle-strokes.svg);
+        width:1498px; position:relative;margin:auto
+        
+
+    }
+
+    </style> 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+          <h2>  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></h2>
+        {% endfor %}
+    </ul>
+{% endif %}
+<div class="">
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for book in b %}
+            <div class="col">
+                <div class="card h-70">
+                    <img src="{{ book.img.url }}" class="card-img-top" alt="..." height="500" width="240" style="object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.title }}</h5>
+                        <p>Book ID: {{ book.id }}</p>
+                        <p class="card-text">Price: ${{ book.price }}</p>
+                        {% if book.book_available %}
+                            <li class="text-primary">Available</li>
+                        {% else %}
+                            <li class="text-danger">Out of Stock!</li>
+                        {% endif %}<br>
+                       
+                        <a href="{% url 'bapp:detail' book.id %}" class="btn btn-warning">Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br>
+<section id="section1">
+<center>
+<div class="background-image">
+ <div class="container-fluid footer-first">
+    <div class="container-fluid footer-second">
+        <div class="content">
+            <div class="col-md-4"><br>
+                <h4><font class="object-fit">Contact us</font></h4>
+                <h7>Email:</h7><p>patanshareef7869@gmail.com</p>
+                <h8>Created by Bookcraft team</h8>
+                <h7>for enquiry purpose contact:<p>Above email </p></h7>
+                <br>
+                <p>Created for testing purpose not the real webpage</p>
+                <p>For copyright purpose contact the above email</p>
+                <br>
+                <p>© All rights are not reserved</p>
+                <br>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</center>
+</section>
+{% endblock %}

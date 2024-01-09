@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<style>
+  p{
+    font-style: italic;
+    font-size: medium;
+    font-weight:600
+  }
+  div{
+    align-items:normal
+  }
+</style>
+<a href="{% url 'bapp:main' %}" class="btn btn-outline-dark" role="button">Back</a>
+<br>
+<br>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+          <h2>  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></h2>
+        {% endfor %}
+    </ul>
+{% endif %}
+<br>
+
+<center>
+<div class="card mb-3" style="max-width: 1250px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{ d.img.url }}" class="card-img">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">{{ d.title }}</h4>
+        <p class="card-text">Price: ${{ d.price }}</p>
+        <p class="card-text" name="new">{{ d.description }}</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        {% if  d.book_available %}
+          <a  href="{% url 'bapp:rent_book' d.id %}" class="btn btn-primary">Rent</a>
+          <a href="{% url 'bapp:order' d.id %}" class="btn btn-warning" role="button">Buy</a>
+        {% else%}
+          <div class="mx-auto" style="width: 340px;">
+            <h4 class="text-danger">Sorry, this book is temporarily unavailable</h4>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</center>
+<a class="btn btn-outline-primary" href="{% url 'bapp:add_review' d.id %}">Add a Review</a>
+
+<!-- Display reviews -->
+<h2>Reviews</h2>
+{% for review in reviews %}
+    <ul class="list-group-item">
+        <p>{{ review.comment }}</p>
+        <p>Rating: {{ review.rating }}</p>
+        <small class="text-muted">Date: {{ review.timestamp|date:"F d, Y" }}</small>
+        <!-- Add edit/delete links for admin -->
+    </ul>
+{% empty %}
+    <p>No reviews yet.</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{% url 'bapp:main' %}" class="btn btn-outline-dark"  role="button">Back</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 mt-5">
+        <div class="card">
+          <div style="background-image: url(https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png); height: 350px; background-size:cover" class="card-img-top" alt="Background Image"></div>
+          <div class="card-body">
+         
+            {% for item in items %}
+              {{ item.product }}<br>
+            {% endfor %}
+            <hr>
+            <h1>{{ success_message }}</h1>
+            <p>Total Amount: ${{ total_amount }}</p>
+            <!-- writes out the form tag automatically -->
+           <center> {{ form.render }}</center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

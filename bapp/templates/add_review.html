@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% block content %}
+<style>
+    body{
+      background-image: url(https://eskipaper.com/images/blurry-wallpaper-hd-1.jpg);
+      background-size: cover;
+      
+      
+    }
+
+  p{
+    color: bisque;
+  }
+
+    .form {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 70px;
+      padding: 30px;
+      background-color:rgba(55, 55, 55, 0.546);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.539);
+      color: #f0e5e5;
+    }
+
+    form {
+      
+      text-align: center;
+    }
+  </style>
+<center>
+    <!-- add_review.html -->
+
+<h2>Add Review for {{ book.title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Review</button>
+</form>
+
+</center>
+{% endblock %}

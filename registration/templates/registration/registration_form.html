@@ -1,0 +1,46 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Register for an account" %}{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url('https://miro.medium.com/v2/resize:fit:1358/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg');
+    }
+
+    p {
+        color: bisque;
+    }
+
+    .card {
+        width: 700px;
+        margin: 50px auto;
+        padding: 10px;
+        background-color: rgba(101, 96, 96, 0.562);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.502);
+        color: #f0e5e5;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+</style>
+
+<center>
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-3">
+                <form method="post" action="" class="row g-3">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="col-md-4">
+                        <input class="btn-outline-success" type="submit" value="{% trans 'Submit' %}" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock %}
